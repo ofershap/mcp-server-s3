@@ -6,15 +6,21 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Manage AWS S3 buckets and objects directly from your AI assistant — browse files, upload/download content, and generate presigned URLs.
+Manage AWS S3 buckets and objects from your AI assistant. Browse files, upload and download content, and generate presigned URLs.
 
 ```bash
 npx mcp-server-s3
 ```
 
-> Works with Claude Desktop, Cursor, VS Code Copilot, and any MCP client. Uses your AWS credentials (~/.aws/credentials or environment variables).
+> Works with Claude Desktop, Cursor, VS Code Copilot, and any MCP client. Uses your existing AWS credentials (`~/.aws/credentials` or environment variables).
 
-![Demo](assets/demo.gif)
+![MCP server for AWS S3 bucket management and file operations](assets/demo.gif)
+
+<sub>Demo built with <a href="https://github.com/ofershap/remotion-readme-kit">remotion-readme-kit</a></sub>
+
+## Why
+
+S3 is the most widely used cloud storage service, but managing it from the command line means remembering `aws s3 ls`, `aws s3 cp`, presigned URL syntax, and various flags. Google has an official MCP for GCS, Cloudflare has one for R2, but AWS S3 doesn't have a polished standalone MCP server on npm. This one lets you ask your assistant to list buckets, download a config file, upload content, or generate a temporary sharing link. It uses the standard AWS credential chain, so if your CLI already works, this works too.
 
 ## Tools
 
@@ -70,7 +76,7 @@ Add to `claude_desktop_config.json` (macOS: `~/Library/Application Support/Claud
 }
 ```
 
-### VS Code (Copilot / MCP extension)
+### VS Code
 
 Configure the MCP server to run `npx mcp-server-s3` with `AWS_REGION`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY` in the environment.
 
@@ -78,11 +84,11 @@ Configure the MCP server to run `npx mcp-server-s3` with `AWS_REGION`, `AWS_ACCE
 
 The server uses the standard AWS credential chain:
 
-1. **Environment variables** — `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
-2. **Shared credentials file** — `~/.aws/credentials`
-3. **IAM roles** — When running on EC2, ECS, Lambda, or similar
+1. **Environment variables**: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
+2. **Shared credentials file**: `~/.aws/credentials`
+3. **IAM roles**: when running on EC2, ECS, Lambda, or similar
 
-Set `AWS_REGION` (defaults to `us-east-1`) and ensure your credentials have the necessary S3 permissions: `s3:ListBuckets`, `s3:ListBucket`, `s3:GetObject`, `s3:PutObject`, `s3:DeleteObject`, `s3:HeadBucket`.
+Set `AWS_REGION` (defaults to `us-east-1`) and make sure your credentials have the necessary S3 permissions: `s3:ListBuckets`, `s3:ListBucket`, `s3:GetObject`, `s3:PutObject`, `s3:DeleteObject`, `s3:HeadBucket`.
 
 ## Example prompts
 
@@ -105,8 +111,11 @@ npm run lint
 
 ## Author
 
-Ofer Shapira · [GitHub](https://github.com/ofershap)
+**Ofer Shapira**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ofershap-blue?logo=linkedin)](https://linkedin.com/in/ofershap)
+[![GitHub](https://img.shields.io/badge/GitHub-ofershap-black?logo=github)](https://github.com/ofershap)
 
 ## License
 
-MIT
+MIT © 2026 Ofer Shapira

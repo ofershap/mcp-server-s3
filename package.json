@@ -1,7 +1,7 @@
 {
   "name": "mcp-server-s3",
   "version": "1.0.0",
-  "description": "MCP server for AWS S3 — list buckets, browse objects, upload/download files, and generate presigned URLs from your IDE",
+  "description": "MCP server for AWS S3 \u2014 list buckets, browse objects, upload/download files, and generate presigned URLs from your IDE",
   "type": "module",
   "bin": {
     "mcp-server-s3": "./dist/index.js"
@@ -65,7 +65,12 @@
     "vitest": "^3.2.0"
   },
   "lint-staged": {
-    "*.{ts,tsx,js}": "eslint --fix",
-    "*.{json,md,yml,yaml}": "prettier --write"
+    "*.{ts,tsx,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }

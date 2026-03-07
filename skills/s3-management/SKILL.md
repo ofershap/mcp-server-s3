@@ -9,15 +9,15 @@ Use this skill when you need to manage S3 buckets, browse objects, upload/downlo
 
 ## Available Tools
 
-| Tool | What it does |
-|------|-------------|
-| `list_buckets` | List all S3 buckets in the AWS account |
-| `list_objects` | List objects in a bucket with optional prefix filter |
-| `get_object` | Download and read an object's content as text |
-| `put_object` | Upload text content to an S3 object |
-| `delete_object` | Delete an object from a bucket |
-| `presigned_url` | Generate a temporary presigned URL for an object |
-| `bucket_info` | Check if a bucket exists and get basic info |
+| Tool            | What it does                                         |
+| --------------- | ---------------------------------------------------- |
+| `list_buckets`  | List all S3 buckets in the AWS account               |
+| `list_objects`  | List objects in a bucket with optional prefix filter |
+| `get_object`    | Download and read an object's content as text        |
+| `put_object`    | Upload text content to an S3 object                  |
+| `delete_object` | Delete an object from a bucket                       |
+| `presigned_url` | Generate a temporary presigned URL for an object     |
+| `bucket_info`   | Check if a bucket exists and get basic info          |
 
 ## Workflow
 
@@ -28,7 +28,7 @@ Use this skill when you need to manage S3 buckets, browse objects, upload/downlo
 
 ## Key Patterns
 
-- `list_objects` uses prefix-based filtering (S3 doesn't have real directories): `prefix: "uploads/2026/"` 
+- `list_objects` uses prefix-based filtering (S3 doesn't have real directories): `prefix: "uploads/2026/"`
 - `get_object` returns text content only — it won't work for images, binaries, or large files
 - `put_object` takes string content — use it for config files, JSON, text, not binary uploads
 - `presigned_url` is the right tool for sharing files or accessing binary content

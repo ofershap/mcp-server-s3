@@ -18,6 +18,10 @@ npx mcp-server-s3
 
 <sub>Demo built with <a href="https://github.com/ofershap/remotion-readme-kit">remotion-readme-kit</a></sub>
 
+<a href="https://glama.ai/mcp/servers/ofershap/mcp-server-s3">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/ofershap/mcp-server-s3/badge" alt="mcp-server-s3 MCP server" />
+</a>
+
 ## Why
 
 S3 is the most widely used cloud storage service, but managing it from the command line means remembering `aws s3 ls`, `aws s3 cp`, presigned URL syntax, and various flags. Google has an official MCP for GCS, Cloudflare has one for R2, but AWS S3 doesn't have a polished standalone MCP server on npm. This one lets you ask your assistant to list buckets, download a config file, upload content, or generate a temporary sharing link. It uses the standard AWS credential chain, so if your CLI already works, this works too.

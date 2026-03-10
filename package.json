@@ -1,6 +1,7 @@
 {
   "name": "mcp-server-s3",
-  "version": "1.0.0",
+  "mcpName": "io.github.ofershap/s3",
+  "version": "1.0.1",
   "description": "MCP server for AWS S3 — list buckets, browse objects, upload/download files, and generate presigned URLs from your IDE",
   "type": "module",
   "bin": {

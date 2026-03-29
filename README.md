@@ -34,6 +34,10 @@ S3 is the most widely used cloud storage service, but managing it from the comma
 | `presigned_url` | Generate a temporary presigned URL for an object.      |
 | `bucket_info`   | Check if a bucket exists and get basic info.           |
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/ofershap-mcp-server-s3).
+
 ## Quick Start
 
 ### Cursor

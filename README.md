@@ -5,6 +5,7 @@
 [![CI](https://github.com/ofershap/mcp-server-s3/actions/workflows/ci.yml/badge.svg)](https://github.com/ofershap/mcp-server-s3/actions/workflows/ci.yml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Agent Plugins](https://img.shields.io/badge/Agent_Plugins-1.0.0-0ea5e9.svg)](https://agent-plugins.org)
 
 Manage AWS S3 buckets and objects from your AI assistant. Browse files, upload and download content, and generate presigned URLs.
 
@@ -89,6 +90,36 @@ The server uses the standard AWS credential chain:
 3. **IAM roles**: when running on EC2, ECS, Lambda, or similar
 
 Set `AWS_REGION` (defaults to `us-east-1`) and make sure your credentials have the necessary S3 permissions: `s3:ListBuckets`, `s3:ListBucket`, `s3:GetObject`, `s3:PutObject`, `s3:DeleteObject`, `s3:HeadBucket`.
+
+## Agent Plugins
+
+This repo is an [Agent Plugins](https://agent-plugins.org) 1.0.0 package: `plugin.json`, portable `mcp.json`, and `skills/` ship together with the MCP server.
+
+For Cursor, clone the repo and copy or symlink it to `~/.cursor/plugins/local/mcp-server-s3`, then reload the window. Skills and MCP show up under Customize > Plugins.
+
+Agent Plugins v1 does not ship OAuth or AWS SSO wiring. Set `AWS_REGION` and credentials via env or `~/.aws/credentials` in the MCP client host. One-click install is not offered because secrets stay in env.
+
+## FAQ
+
+### What is mcp-server-s3?
+
+An MCP server for S3: list buckets and objects, read/upload text objects, delete keys, presigned URLs, and bucket checks.
+
+### How does authentication work?
+
+Standard AWS credential chain: env vars, shared credentials file, or IAM role on the machine running the MCP server.
+
+### Which env vars should I set in MCP config?
+
+At minimum `AWS_REGION`. Often `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` unless you rely on `~/.aws/credentials` or a role.
+
+### Can I install it as an Agent Plugin in Cursor?
+
+Yes, via `~/.cursor/plugins/local/mcp-server-s3`. Ensure the Cursor process can read the same AWS credentials as your CLI.
+
+### Why no one-click Cursor button?
+
+AWS keys cannot be embedded in a portable install link. Use the JSON under Quick Start.
 
 ## Example prompts
 
